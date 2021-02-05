@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Project_1_438</string>
+    <string name="usename_create">Usename</string>
+    <string name="first_name_create">First Name</string>
+    <string name="username_hint_create">Username</string>
+    <string name="password_hint_create">Password</string>
+    <string name="first_name">First Name</string>
+    <string name="zipcode_hint_create">Zipcode</string>
+    <string name="create_btn">Create</string>
 </resources>
