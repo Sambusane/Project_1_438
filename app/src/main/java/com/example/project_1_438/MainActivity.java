@@ -2,6 +2,7 @@ package com.example.project_1_438;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -34,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        createAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = CreateAccountActivity.intentFactory(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
         /**
           Creation of the Database when app is first loaded. Will be used when called upon by using'
          db.function();
@@ -41,5 +50,8 @@ public class MainActivity extends AppCompatActivity {
         Database db = Room.databaseBuilder(getApplicationContext(),Database.class,
                 "User").build();
 
+    }
+    public static Intent intentFactory(Context context){
+        return new Intent(context,MainActivity.class);
     }
 }

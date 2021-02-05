@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User {
 
-    public User(String name, int zipCode, String username, String password, boolean adminPerms) {
-        Name = name;
+    public User(String Name, int zipCode, String Username, String Password, boolean adminPerms) {
+        this.Name = Name;
         this.zipCode = zipCode;
-        Username = username;
-        Password = password;
+        this.Username = Username;
+        this.Password = Password;
         this.adminPerms = adminPerms;
     }
 

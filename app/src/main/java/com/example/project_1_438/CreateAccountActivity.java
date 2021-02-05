@@ -1,6 +1,10 @@
 package com.example.project_1_438;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import com.example.project_1_438.DAO.Database;
+import com.example.project_1_438.DAO.UserDao;
+import com.example.project_1_438.DAO.User;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,14 +22,17 @@ public class CreateAccountActivity extends AppCompatActivity {
     Button submitButton;
     String userFName;
     String userUserName;
-    Integer userZip;
+    String userZip;
     String userPass;
+    UserDao mUserDAO;
+    User addUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        getDatabase();
         wireUpDisplay();
     }
 
@@ -39,11 +46,17 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getTheFields();
+
                 if (checkValid()){
+
                     if (isUserInDAO()){
+                        Toast.makeText(CreateAccountActivity.this,"Username is taken.",Toast.LENGTH_SHORT).show();
 
                     }else {
                         addUserToDAO();
+                        Toast.makeText(CreateAccountActivity.this,"Account Created. Please Log in",Toast.LENGTH_SHORT).show();
+                        Intent intent= MainActivity.intentFactory(CreateAccountActivity.this);
+                        startActivity(intent);
                     }
                 }else{
                     Toast.makeText(CreateAccountActivity.this,"Please fill out all fields.",Toast.LENGTH_SHORT).show();
@@ -54,27 +67,38 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
 
     }
+    private void getDatabase() {
+        mUserDAO= Room.databaseBuilder(this, Database.class,"USER_TABLE")
+                .allowMainThreadQueries()
+                .build()
+                .userDao();
+    }
 
     private void addUserToDAO() {
-        //TODO: add user to database;
+        addUser = new User(userFName,Integer.parseInt(userZip),userUserName,userPass,false);
+        mUserDAO.insertAll(addUser);
     }
 
     private boolean isUserInDAO() {
-        //TODO:check if user is in database
+        addUser = mUserDAO.getUserByUsername(userUserName);
+        if (addUser==null){
+            return false;
+        }
         return true;
 
     }
 
     private boolean checkValid() {
-        if (validateFirstName()&&validatePassword()&&validateUserName()&&validateZipcode()){
-            return true;
-        }
-        return false;
+        validateZipcode();
+        validateUserName();
+        validatePassword();
+        validateFirstName();
+        return validateFirstName() && validatePassword() && validateUserName() && validateZipcode();
 
     }
 
     private boolean validateFirstName(){
-        if (userFName == null){
+        if (userFName == null||userFName.equals("")){
             firstName.setError("field cannot be empty!");
             return false;
         }else {
@@ -83,7 +107,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
     private boolean validateUserName(){
-        if (userUserName == null){
+        if (userUserName == null||userUserName.equals("")){
             userName.setError("field cannot be empty!");
             return false;
         }else {
@@ -92,7 +116,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
     private boolean validateZipcode(){
-        if (userZip == null){
+        if (userZip == null||userZip.equals("")){
             zipcode.setError("field cannot be empty!");
             return false;
         }else {
@@ -101,7 +125,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
     private boolean validatePassword(){
-        if (userPass == null){
+        if (userPass == null||userPass.equals("")){
             password.setError("field cannot be empty!");
             return false;
         }else {
@@ -113,7 +137,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private void getTheFields() {
         userFName = firstName.getText().toString().trim();
         userUserName = userName.getText().toString().trim();
-        userZip = Integer.parseInt(zipcode.getText().toString().trim());
+        userZip = zipcode.getText().toString().trim();
         userPass = password.getText().toString().trim();
     }
 
