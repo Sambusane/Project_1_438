@@ -7,4 +7,6 @@
     <string name="first_name">First Name</string>
     <string name="zipcode_hint_create">Zipcode</string>
     <string name="create_btn">Create</string>
+    <string name="log_into_your_account">LOG INTO YOUR ACCOUNT</string>
+    <string name="log_in">Log in</string>
 </resources>
