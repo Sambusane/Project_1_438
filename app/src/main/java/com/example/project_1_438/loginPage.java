@@ -25,6 +25,7 @@ public class loginPage extends AppCompatActivity {
     EditText passwordLogin;
     Button loginPageBtn;
 
+    String accountName;
     String password;
     String username;
 
@@ -50,8 +51,8 @@ public class loginPage extends AppCompatActivity {
                          *
                          * ****CHANGE LATER******
                          */
-
                         Intent intent = new Intent(getApplicationContext(), tempDisplayPage.class);
+                        intent.putExtra("N",username);
                         startActivity(intent);
 
                     }else{
