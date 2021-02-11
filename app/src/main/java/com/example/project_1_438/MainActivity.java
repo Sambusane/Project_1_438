@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       
-        Button loginBtn = (Button)findViewById(R.id.loginBtn);
-        Button createAccountBtn = (Button)findViewById(R.id.createAccountBtn);
+        Button loginBtn = findViewById(R.id.loginBtn);
+        Button createAccountBtn = findViewById(R.id.createAccountBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                  * need to still check to make sure the credentials match - Tim
                  */
 
-                Intent intent = new Intent(getApplicationContext(), loginPage.class);
+                Intent intent = loginPage.intentFactory(MainActivity.this);
                 startActivity(intent);
             }
         });
@@ -52,6 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public static Intent intentFactory(Context context){
-        return new Intent(context,MainActivity.class);
+        return new Intent(context, MainActivity.class);
     }
 }
