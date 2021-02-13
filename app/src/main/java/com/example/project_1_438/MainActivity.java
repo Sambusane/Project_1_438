@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
       
         Button loginBtn = findViewById(R.id.loginBtn);
         Button createAccountBtn = findViewById(R.id.createAccountBtn);
+        Button editAccountBtn = findViewById(R.id.EditAccount);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = CreateAccountActivity.intentFactory(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+        editAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = EditAccountLogin.intentFactory(MainActivity.this);
                 startActivity(intent);
             }
         });
