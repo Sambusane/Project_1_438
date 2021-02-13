@@ -9,4 +9,11 @@
     <string name="create_btn">Create</string>
     <string name="log_into_your_account">LOG INTO YOUR ACCOUNT</string>
     <string name="log_in">Log in</string>
+    <string name="admin">ADMIn</string>
+    <string name="firstname">Firstname</string>
+    <string name="username">Username</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="password">Password</string>
+    <string name="apply">Apply</string>
+    <string name="delete">DELETE</string>
 </resources>

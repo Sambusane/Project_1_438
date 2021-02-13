@@ -10,14 +10,21 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import com.example.project_1_438.DAO.Database;
+import com.example.project_1_438.DAO.User;
+import com.example.project_1_438.DAO.UserDao;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+    UserDao mUserDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
       
         Button loginBtn = findViewById(R.id.loginBtn);
         Button createAccountBtn = findViewById(R.id.createAccountBtn);
@@ -49,8 +56,33 @@ public class MainActivity extends AppCompatActivity {
          */
         Database db = Room.databaseBuilder(getApplicationContext(),Database.class,
                 "User").build();
+        /*
+        creating a function that checks if the database of users is empty and if it is it will create and add in an admin user and a dummy user
+        username: admin, password:admin
+        username: Luke, password:Skywalker
+         */
+        getDatabase();
+        checkIfDAOEmpty();
 
     }
+
+    private void getDatabase() {
+        mUserDAO= Room.databaseBuilder(this, Database.class,"USER_TABLE")
+                .allowMainThreadQueries()
+                .build()
+                .userDao();
+    }
+
+    private void checkIfDAOEmpty() {
+        ArrayList<User> users;
+        users= (ArrayList<User>) mUserDAO.getAll();
+        if (users.size()<=0){
+            User admin = new User("admin",93901,"admin","admin",true);
+            User test = new User("Luke",93955,"Luke","Skywalker",false);
+            mUserDAO.insertAll(admin,test);
+        }
+    }
+
     public static Intent intentFactory(Context context){
         return new Intent(context, MainActivity.class);
     }
