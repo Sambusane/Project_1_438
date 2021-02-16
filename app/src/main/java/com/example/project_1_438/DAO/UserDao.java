@@ -3,6 +3,7 @@ package com.example.project_1_438.DAO;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -19,6 +20,8 @@ public interface  UserDao {
     @Insert
     void insertAll(User...user);
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAllUsers(List<User> user);
 
     @Delete
     void deleteAll(User...user);
