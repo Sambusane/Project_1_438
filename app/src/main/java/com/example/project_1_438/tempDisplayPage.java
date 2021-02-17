@@ -31,16 +31,13 @@ public class tempDisplayPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mUserDao = Room.databaseBuilder(this, Database.class,"USER_TABLE")
-                .allowMainThreadQueries()
-                .build()
-                .userDao();
         setContentView(R.layout.activity_temp_display_page);
+
+        getDatabase();
         Intent Prev = getIntent();
-        //User = Prev.getStringExtra("N");
-         userID = Prev.getIntExtra("N", 0);
-        //getSupportActionBar().setTitle("Welcome " + User);
-        getSupportActionBar().setTitle("Welcome " + userID);
+        String User = Prev.getStringExtra("N");
+        getSupportActionBar().setTitle("Welcome " + User);
+
         adminButton = findViewById(R.id.admin_button);
         deleteAccountButton = findViewById(R.id.delete_button);
         textViewResult = findViewById(R.id.text_view_result);
@@ -97,4 +94,12 @@ public class tempDisplayPage extends AppCompatActivity {
             }
         });
     }
+
+    public void getDatabase(){
+        mUserDao = Room.databaseBuilder(this, Database.class,"USER_TABLE")
+                .allowMainThreadQueries()
+                .build()
+                .userDao();
+    }
+
 }

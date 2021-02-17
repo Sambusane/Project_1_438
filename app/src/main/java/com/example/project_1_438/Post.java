@@ -3,6 +3,7 @@ package com.example.project_1_438;
 import com.google.gson.annotations.SerializedName;
 
 public class Post {
+<<<<<<< HEAD
     private int userId;
     private int id;
     private String title;
@@ -16,6 +17,17 @@ public class Post {
     public int getId() {
         return id;
     }
+=======
+
+
+    public String title;
+    @SerializedName("body")
+    public String text;
+
+    public int userId;
+
+    public int id;
+>>>>>>> origin/master
 
     public String getTitle() {
         return title;
@@ -24,4 +36,16 @@ public class Post {
     public String getText() {
         return text;
     }
+<<<<<<< HEAD
 }
+=======
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
+>>>>>>> origin/master
