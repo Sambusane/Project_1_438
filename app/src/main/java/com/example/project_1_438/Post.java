@@ -23,7 +23,7 @@ public class Post {
     public String title;
     @SerializedName("body")
     public String text;
-
+    //comment to fix post
     public int userId;
 
     public int id;
