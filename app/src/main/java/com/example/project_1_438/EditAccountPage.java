@@ -29,6 +29,7 @@ public class EditAccountPage extends AppCompatActivity {
      EditText pass;
      EditText zip;
      Button confirm;
+     Button deleteAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

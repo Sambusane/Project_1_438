@@ -12,7 +12,11 @@
         <activity android:name=".Display_Page"></activity>
         <activity android:name=".tempDisplayPage" />
         <activity android:name=".CreateAccountActivity" />
+        <activity android:name=".EditAccountLogin" />
         <activity android:name=".loginPage" />
+        <activity android:name=".EditAccountPage" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".AdminEditActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
