@@ -43,6 +43,7 @@ public class EditAccountPage extends AppCompatActivity {
         pass = findViewById(R.id.editAccountPassword);
         zip = findViewById(R.id.editAccountZipCode);
         confirm = findViewById(R.id.EditAccountConfirm);
+        deleteAccount = findViewById(R.id.editAccountDelete);
         getDatabase();
         fillContent(username);
 
@@ -54,6 +55,16 @@ public class EditAccountPage extends AppCompatActivity {
                     Intent intent = new Intent(EditAccountPage.this, MainActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAccount(username);
+                Toast.makeText(EditAccountPage.this,"Account has been Deleted.", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(EditAccountPage.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -105,6 +116,15 @@ public class EditAccountPage extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    public void deleteAccount(String n){
+        allAccounts = mUserDAO.getAll();
+        for(int i = 0; i < allAccounts.size(); i++) {
+            if(n.equals(allAccounts.get(i).Username)){
+                mUserDAO.deleteSpecificUser(n);
+            }
+        }
     }
 
 
