@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import com.example.project_1_438.DAO.Database;
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //public static Intent intentFactory(CreateAccountActivity context){
     public static Intent intentFactory(Context context){
         return new Intent(context, MainActivity.class);
     }

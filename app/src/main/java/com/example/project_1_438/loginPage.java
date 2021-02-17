@@ -28,6 +28,7 @@ public class loginPage extends AppCompatActivity {
     String accountName;
     String password;
     String username;
+    User signedInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class loginPage extends AppCompatActivity {
                          */
                         Intent intent = new Intent(getApplicationContext(), tempDisplayPage.class);
                         intent.putExtra("N",username);
+                        //intent.putExtra("N",signedInUser.uid);
+                        //intent.putExtra("N",signedInUser);//get this to work correctly by having the signed in
+                        //user account deleted from the database
                         startActivity(intent);
 
                     }else{
@@ -121,6 +125,7 @@ public class loginPage extends AppCompatActivity {
             System.out.println(allAccounts.get(i).getUsername());
 
             if(allAccounts.get(i).getUsername().equals(username) && allAccounts.get(i).getPassword().equals(password)){
+                  signedInUser = allAccounts.get(i);
                   return true;
             }
         }

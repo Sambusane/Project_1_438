@@ -9,27 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditAccountPage"></activity>
-        <activity android:name=".EditAccountLogin" />
-        <activity android:name=".AdminEditActivity" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".Display_Page" />
-        <activity
-            android:name=".tempDisplayPage"
-            android:label="Details"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".CreateAccountActivity"
-            android:label="Details"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".loginPage"
-            android:label="Details"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="Details"
-            android:parentActivityName=".MainActivity">
+        <activity android:name=".Display_Page"></activity>
+        <activity android:name=".tempDisplayPage" />
+        <activity android:name=".CreateAccountActivity" />
+        <activity android:name=".loginPage" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
