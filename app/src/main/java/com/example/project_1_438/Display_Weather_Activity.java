@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Display_Weather_Activity extends AppCompatActivity {
 
+
     private TextView textViewResult;
 
     @Override

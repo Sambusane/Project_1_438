@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Post {
 
+
     public String title;
     @SerializedName("body")
     public String text;
