@@ -30,27 +30,20 @@ public class Display_Weather_Activity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<List<Post>> call = jsonPlaceHolderApi.getPost();
-        call.enqueue(new Callback<List<Post>>() {
+        Call<Post> call = jsonPlaceHolderApi.getPost(93901,"74d8517267ed379a707898f5da43b1cc","imperial");
+        call.enqueue(new Callback<Post>() {
             @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+            public void onResponse(Call<Post> call, Response<Post> response) {
                 if (!response.isSuccessful()) {
                     textViewResult.setText("Code: "+response.code());
                     return;
                 }
-                List<Post> posts = response.body();
-                for (Post post: posts) {
-                    String content ="";
-                    content += "ID: "+post.getId()+"\n";
-                    content += "User ID: "+post.getUserId()+"\n";
-                    content += "Title: "+post.getTitle()+"\n";
-                    content += "Text: "+post.getText()+"\n\n";
-                    textViewResult.append(content);
-                }
+                Post posts = response.body();
+
             }
 
             @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
+            public void onFailure(Call<Post> call, Throwable t) {
                 textViewResult.setText(t.getMessage());
             }
         });
