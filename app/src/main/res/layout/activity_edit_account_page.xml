@@ -6,59 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".EditAccountPage">
 
-    <Button
-        android:id="@+id/editAccountDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAccountPassword"
-        app:layout_constraintVertical_bias="0.297" />
-
     <TextView
         android:id="@+id/textviewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
         android:text="Password:"
+        android:textColor="@color/darkBlueBtnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.609" />
 
     <TextView
         android:id="@+id/textviewZipCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
         android:text="ZipCode:"
+        android:textColor="@color/darkBlueBtnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <TextView
         android:id="@+id/textviewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
         android:text="Name:"
+        android:textColor="@color/darkBlueBtnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.341" />
 
     <EditText
         android:id="@+id/editAccountPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/amiko"
+        android:textColor="@color/darkBlueBtnColor"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/amiko"
+        android:textColor="@color/darkBlueBtnColor"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/amiko"
+        android:textColor="@color/darkBlueBtnColor"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,6 +99,8 @@
         android:layout_height="wrap_content"
         android:editable="false"
         android:ems="10"
+        android:fontFamily="@font/amiko"
+        android:textColor="@color/darkBlueBtnColor"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,34 +113,56 @@
         android:id="@+id/textviewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
         android:text="Username:"
+        android:textColor="@color/darkBlueBtnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.221" />
+
+    <Button
+        android:id="@+id/editAccountDelete"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/darkBlueBtnColor"
+        android:text="Delete Account"
+        android:textColor="#FFFFF0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editAccountPassword"
+        app:layout_constraintVertical_bias="0.59" />
 
     <Button
         android:id="@+id/EditAccountConfirm"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFF0"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAccountPassword"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.31" />
 
-    <TextView
-        android:id="@+id/textViewInformation"
+
+    <ImageView
+        android:id="@+id/editAccountBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EDIT ACCOUNT INFORMATION"
-        app:layout_constraintBottom_toTopOf="@+id/editAccountUsername"
+        android:scaleType="fitXY"
+        android:alpha="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:srcCompat="@drawable/edit_account_background" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

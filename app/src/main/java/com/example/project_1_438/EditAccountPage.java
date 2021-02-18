@@ -1,16 +1,15 @@
 package com.example.project_1_438;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.project_1_438.DAO.Database;
 import com.example.project_1_438.DAO.User;
@@ -44,6 +43,9 @@ public class EditAccountPage extends AppCompatActivity {
         zip = findViewById(R.id.editAccountZipCode);
         confirm = findViewById(R.id.EditAccountConfirm);
         deleteAccount = findViewById(R.id.editAccountDelete);
+
+        getSupportActionBar().setTitle("Edit your account");
+
         getDatabase();
         fillContent(username);
 

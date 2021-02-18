@@ -1,7 +1,5 @@
 package com.example.project_1_438;
 
-import android.content.Intent;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -416,4 +414,3 @@ class Sys{
         this.sunset = sunset;
     }
 }
-
