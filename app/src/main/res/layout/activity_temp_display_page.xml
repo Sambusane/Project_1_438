@@ -26,7 +26,7 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#B0A4BC"
-        android:text="@string/delete"
+        android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
