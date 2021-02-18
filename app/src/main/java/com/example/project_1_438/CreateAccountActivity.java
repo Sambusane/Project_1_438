@@ -145,6 +145,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         userPass = password.getText().toString().trim();
     }
 
+    public static String testCreateAccount(User user){
+        User testUser = user;
+        return testUser.Name;
+    }
+
     public static Intent intentFactory(Context context){
         return new Intent(context, CreateAccountActivity.class);
     }
