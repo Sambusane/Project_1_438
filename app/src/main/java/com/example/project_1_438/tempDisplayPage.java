@@ -1,19 +1,18 @@
 package com.example.project_1_438;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import com.example.project_1_438.DAO.Database;
 import com.example.project_1_438.DAO.User;
 import com.example.project_1_438.DAO.UserDao;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +26,11 @@ public class tempDisplayPage extends AppCompatActivity {
     Button deleteAccountButton;
     int userID;
     private UserDao mUserDao;
-    private TextView textViewResult;
+
+    private TextView temperatureTextView;
+    private TextView cityTextView;
+    private TextView forecastTextView;
+
     User loggedIn;
     String User;
 
@@ -45,7 +48,10 @@ public class tempDisplayPage extends AppCompatActivity {
 
 
         deleteAccountButton = findViewById(R.id.delete_button);
-        textViewResult = findViewById(R.id.text_view_result);
+        temperatureTextView = findViewById(R.id.temperatureTextView);
+        cityTextView = findViewById(R.id.cityTextView);
+        forecastTextView = findViewById(R.id.forecastTextView);
+
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,24 +82,24 @@ public class tempDisplayPage extends AppCompatActivity {
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
         Call<Post> call = jsonPlaceHolderApi.getPost(loggedIn.getZipCode(),"74d8517267ed379a707898f5da43b1cc","imperial");
         call.enqueue(new Callback<Post>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
                 if (!response.isSuccessful()) {
-                    textViewResult.setText("Code: "+response.code());
+                    temperatureTextView.setText("Code: "+response.code());
                     return;
                 }
-                String content="";
-                Post posts = response.body();
-                content += "Forcast: "+posts.weather.get(0).description+"\n";
-                content += "Temperature: "+posts.main1.temp+"\n";
-                content += "City: "+posts.name+"\n";
-                textViewResult.append(content);
 
+                Post posts = response.body();
+
+                forecastTextView.setText(posts.weather.get(0).description);
+                temperatureTextView.setText("" + Math.round(posts.main1.temp) + "˚");
+                cityTextView.setText(posts.name);
             }
 
             @Override
             public void onFailure(Call<Post> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
+                temperatureTextView.setText(t.getMessage());
             }
         });
     }

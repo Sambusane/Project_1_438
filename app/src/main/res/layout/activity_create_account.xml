@@ -12,6 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:fontFamily="@font/amiko"
+        android:textColorHint="@color/darkBlueBtnColor"
         android:ems="10"
         android:hint="@string/username_hint_create"
         android:importantForAutofill="no"
@@ -20,13 +22,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
 
     <EditText
         android:id="@+id/createPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="216dp"
+        android:fontFamily="@font/amiko"
+        android:textColorHint="@color/darkBlueBtnColor"
         android:ems="10"
         android:hint="@string/password_hint_create"
         android:importantForAutofill="no"
@@ -35,38 +40,46 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="134dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="296dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/amiko"
         android:text="@string/create_btn"
+        android:textColor="#FFFFF0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.868" />
 
     <EditText
         android:id="@+id/createFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/darkBlueBtnColor"
         android:ems="10"
         android:hint="@string/first_name"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:fontFamily="@font/amiko"
         app:layout_constraintBottom_toTopOf="@+id/createPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
-        android:importantForAutofill="no"/>
+        app:layout_constraintVertical_bias="0.9" />
 
     <EditText
         android:id="@+id/createZipcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
+        android:textColorHint="@color/darkBlueBtnColor"
         android:ems="10"
         android:hint="@string/zipcode_hint_create"
         android:importantForAutofill="no"
@@ -76,5 +89,49 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintVertical_bias="0.936" />
+
+    <TextView
+        android:id="@+id/logoTextView"
+        android:layout_width="319dp"
+        android:layout_height="99dp"
+        android:fontFamily="@font/amiko_bold"
+        android:text="@string/weatha"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.133" />
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="121dp"
+        android:layout_height="123dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/create_account_background" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

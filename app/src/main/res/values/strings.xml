@@ -16,4 +16,7 @@
     <string name="password">Password</string>
     <string name="apply">Apply</string>
     <string name="delete">DELETE</string>
+    <string name="weatha">Weatha</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="create_account">Create Account</string>
 </resources>

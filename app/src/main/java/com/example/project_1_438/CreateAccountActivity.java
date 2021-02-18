@@ -1,11 +1,5 @@
 package com.example.project_1_438;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-import com.example.project_1_438.DAO.Database;
-import com.example.project_1_438.DAO.UserDao;
-import com.example.project_1_438.DAO.User;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
+import com.example.project_1_438.DAO.Database;
+import com.example.project_1_438.DAO.User;
+import com.example.project_1_438.DAO.UserDao;
 
 public class CreateAccountActivity extends AppCompatActivity {
     EditText firstName;
@@ -32,6 +33,9 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+
+        getSupportActionBar().setTitle("Create your account");
+
         getDatabase();
         wireUpDisplay();
     }
